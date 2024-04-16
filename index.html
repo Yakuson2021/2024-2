@@ -6,6 +6,10 @@
         <meta name="description" content="SocialTechはEdTech業界のリーディングカンパニーを目指します。">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        
+        <!-- slickの読み込み -->
+       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     </head>
     <body>
         <!--ヘッダー-->
@@ -51,14 +55,41 @@
         <main>
             <article>
                 <!-- メインビジュアル -->
-                <section id="main-visual">
-                    <div id="main-message">
-                        <h1>WORLD PEACE</h1>
-                        <p>IT教育で世界平和を実現する</p>
-                    </div>
-                    <img src="images/index/index-main.png" alt="PCの周りに集まる多国籍の仲間たち">
-                </section>
+                <!--<section id="main-visual">-->
+                <!--    <div id="main-message">-->
+                <!--        <h1>WORLD PEACE</h1>-->
+                <!--        <p>IT教育で世界平和を実現する</p>-->
+                <!--    </div>-->
+                <!--    <img src="images/index/index-main.png" alt="PCの周りに集まる多国籍の仲間たち">-->
+                <!--</section>-->
                 
+               <!-- カルーセル -->
+               <section id="carousel-section">
+                   <div class="carousel">
+                       <div>
+                           <a href="index.html">
+                               <img class="carouselImg" src="images/carousel1.png">
+                           </a>
+                       </div>
+                       <div>
+                           <a href="mission.html">
+                               <img class="carouselImg" src="images/carousel2.png">
+                           </a>
+                       </div>
+                       <div>
+                           <a href="product.html">
+                               <img class="carouselImg" src="images/carousel3.png">
+                           </a>
+                       </div>
+                       <div>
+                           <a href="#company">
+                               <img class="carouselImg" src="images/carousel4.png">
+                           </a>
+                       </div>
+                       
+                   </div>
+               </section>
+               
                 <!-- ミッション -->
                 <section id="mission">
                     <h2 class="index-h2">MISSION</h2>
@@ -73,7 +104,8 @@
                             <img id="s2dgs" src="images/index/s2dgs.png" alt="S2DGs">
                             <h3>S2DGsの実現</h3>
                             <p>国連が掲げる「Sustainable Development Goals（持続可能な開発目標）」に含まれる17つのグローバル目標のうち、以下の5つの目標の実現をミッションとしてサービスを展開しています。</p>
-                            <a href="mission.html"><img src="images/button-more.png" alt="もっとみる"></a>
+                            <a href="mission.html">
+                            <img class="button-more" src="images/button-more.png" alt="もっとみる"></a>
                         </div>
                     </div>
                 </section>
@@ -123,7 +155,9 @@
                     </div>
                     
                     <div>
-                        <a id="product-more" href="product.html"><img src="images/button-more.png" alt="もっとみる"></a>
+                        <a id="product-more" href="product.html">
+                         <img class="button-more" src="images/button-more.png" alt="もっとみる">
+                        </a>
                     </div>
                 </section>
                 
@@ -318,6 +352,8 @@
                     　<!--redirectToのURLは公開後のURLへリンクする-->
                       <input type="hidden" name="redirectTo" value="">     
                     </form>
+                    
+                    <form id="form">
                      <div>
                          <div class="contact-heading">
                              <label class="contact-label">お名前
@@ -325,7 +361,7 @@
                          </div>
                          
                          <div>
-                             <input type="text" name="name" placeholder="入力してください" class="contact-textbox">
+                             <input id="name" type="text" name="name" placeholder="入力してください" class="contact-textbox">
                          </div>
                      </div>
                      
@@ -337,7 +373,7 @@
                          </div>
                          
                          <div>
-                             <input type="text" name="furigana" placeholder="入力してください" class="contact-textbox">
+                             <input id="furigana" type="text" name="furigana" placeholder="入力してください" class="contact-textbox">
                          </div>
                      </div>
                      
@@ -348,7 +384,7 @@
                          </div>
                          
                          <div>
-                             <input type="text" name="email" placeholder="入力してください" class="contact-textbox">
+                             <input id="email" type="text" name="email" placeholder="入力してください" class="contact-textbox">
                          </div>
                      </div>
                      
@@ -359,7 +395,7 @@
                          </div>
                          
                          <div>
-                             <input type="text" name="tel" placeholder="入力してください" class="contact-textbox">
+                             <input id="tel" type="text" name="tel" placeholder="入力してください" class="contact-textbox">
                          </div>
                      </div>
                      
@@ -370,7 +406,7 @@
                          </div>
                          
                          <div>
-                             <textarea class="contact-textarea" placeholder="入力してください" name="message"></textarea>
+                             <textarea id="message" class="contact-textarea " placeholder="入力してください" name="message"></textarea>
                          </div>
                      </div>
                      
@@ -421,12 +457,11 @@
                                        お客様がご自身の個人情報を弊社に提供されるか否かは、お客様のご判断によりますが、もしご提供されない場合には、適切なサービスが提供できない場合がありますので予めご了承ください。
                                      </div>
                              </details>
-                             <input type="checkbox" name="agree">
+                             <input id="agree" type="checkbox" name="agree">
                              <span>個人情報の取り扱いについてご同意いただける場合は、チェックをしてください。</span>
                          </div>
                      </div>
-                     
-                     <input type="image" src="images/button-submit.png" alt="送信する">
+                     <input id="submit" type="image" src="images/button-submit.png" alt="送信する">
                  </form>
             　 </section>
             </article>
@@ -454,7 +489,14 @@
              </footer>
      
         </main>
-
         
+        <!--jQueryをCDNで読み込ませる記述→完成済みで公開されているプログラム（ライブラリ）。CDNを使ってインターネット経由で読み込む-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!--script.jsを読み込みます→自分で記述したプログラム。ファイルが置かれているパスを指定して読み込む-->
+        <!-- slickの読み込み -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="script.js"></script>
+
     </body>
 </html>
