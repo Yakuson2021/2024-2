@@ -33,6 +33,20 @@ $(function () {
      event.preventDefault();
      // 入力チェックをした結果をresultに格納
      let result = inputCheck();
+     
+     // エラー判定とメッセージを取得
+     let error = result.error;
+     let message = result.message;
+     
+     if (error == false) {
+       // フォーム送信は実際には行わず、送信成功メッセージのみ表示する
+       alert('お問い合わせを送信しました。');
+     } else {
+       // エラーメッセージを表示する
+       alert(message);
+
+     }
+     
    });
    
       // フォーカスが外れたとき（blur）にフォームの入力チェックをする
@@ -53,8 +67,14 @@ $(function () {
    });
    $('#agree').click(function () {
      inputCheck();
-     
    });
+   
+// --------------------------------------------ここから演習の追加分-------------
+   $('#prefecture').click(function () {
+     inputCheck();
+   });
+// --------------------------------------------ここまで-------------
+   
    // お問い合わせフォームの入力チェック
    function inputCheck() {
     //   console.log('inputCheck関数の呼び出し');
@@ -86,7 +106,7 @@ $(function () {
         $('#furigana').css('background-color', '#f79999');
         // 変数errorにtrueを代入します
         error = true;
-        message += 'お名前を入力してください。\n';
+        message += 'フリガナを入力してください。\n';
         
     } else {
         // エラーなしの処理
@@ -99,7 +119,7 @@ $(function () {
         $('#message').css('background-color', '#f79999');
         // 変数errorにtrueを代入します
         error = true;
-        message += 'お名前を入力してください。\n';
+        message += 'お問い合わせ内容を入力してください。\n';
         
     } else {
         // エラーなしの処理
@@ -113,7 +133,7 @@ $(function () {
         $('#email').css('background-color', '#f79999');
         // 変数errorにtrueを代入します
         error = true;
-        message += 'お名前を入力してください。\n';
+        message += 'メールアドレスが未記入、または「@」「.」が含まれていません。\n';
         
     } else {
         // エラーなしの処理
@@ -132,6 +152,22 @@ $(function () {
         // エラーなしの処理
         $('#tel').css('background-color', '#fafafa');
     }
+    
+// --------------------------------------------ここから演習の追加分-------------
+
+    // お住いの都道府県のチェックする「$('#prefecture').val()」で「お住いの都道府県」に入力されている文字列を取得
+    if ($('#prefecture').val() == '') {
+        // エラーありの処理
+        $('#prefecture').css('background-color', '#f79999');
+        // 変数errorにtrueを代入します
+        error = true;
+        message += 'お住いの都道府県を選択してください。\n';
+        
+    } else {
+        // エラーなしの処理
+        $('#prefecture').css('background-color', '#fafafa');
+    }
+// --------------------------------------------ここまで-------------
     
     // 個人情報のチェックボックスのチェックの手順
     // 1.チェックボックスがチェックされているかどうかをprop('checked')メソッドで取得する（($('#agree').prop('checked')）
